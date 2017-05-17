@@ -103,6 +103,14 @@ jStat.utils = {
 };
 
 
+jStat._random_fn = Math.random;
+jStat.setRandom = function setRandom(fn) {
+  if (typeof fn !== 'function')
+    throw new TypeError('fn is not a function');
+  jStat._random_fn = fn;
+};
+
+
 // Easily extend the jStat object.
 // TODO: is this seriously necessary?
 jStat.extend = function extend(obj) {
